@@ -55,6 +55,7 @@ class Triangulo {
         this.ladoD = ladoD;
         this.ladoBase = ladoBase;
         this.altura = altura;
+        this.escaleno = false;
     }
 
     getLadoI() {
@@ -89,20 +90,48 @@ class Triangulo {
         this.altura = altura;
     }
 
-    calcPerimetro() {
-        return this.getLadoI() + this.getLadoD() + this.getLadoBase();
+    getEscaleno() {
+        return this.escaleno
     }
 
-    calcArea() {
-        return (this.getLadoBase() * this.getAltura()) / 2;
+    setEscaleno(escaleno) {
+        this.escaleno = escaleno;
+    }
+
+    calcPerimetro() {
+        return this.getLadoI() + this.getLadoD() + this.getLadoBase();
     }
 
     getPerimetro() {
         return this.calcPerimetro();
     }
 
+    calcArea() {
+        this.calcAltura();
+        if (this.getEscaleno()) {
+            return Math.sqrt(this.getAltura() * ((this.getAltura() - this.getLadoI()) * (this.getAltura() - this.getLadoD()) * (this.getAltura() - this.getLadoBase())));
+        } 
+        return (this.getLadoBase() * this.getAltura()) / 2;
+    }
+
     getArea() {
         return this.calcArea();
+    }
+
+    calcAltura() {
+        if (this.getLadoI() === this.getLadoD() && this.getLadoD() === this.getLadoBase()) {
+            // equilatero
+            this.setAltura((Math.sqrt((3 * this.getLadoI()))) / 2);
+        } else if (this.getLadoI() === this.getLadoD() && this.getLadoD() != this.getLadoBase() ||
+                   this.getLadoI() != this.getLadoD() && this.getLadoD() === this.getLadoBase() ||
+                   this.getLadoI() != this.getLadoBase() && this.getLadoD() === this.getLadoBase()) {
+            // isoceles
+            this.setAltura(Math.sqrt(Math.pow(this.getLadoI(),2) - (Math.pow(this.getLadoBase(),2) / 4)));
+        } else {
+            // escaleno
+            this.setAltura(this.getPerimetro() / 2); // semiperimetro
+            this.setEscaleno(true);
+        }
     }
 }
 let triangulo1 = new Triangulo(0,0,0,0);
@@ -194,3 +223,36 @@ console.groupEnd();
 
 // Interactuando con HTML y JS
 
+function calcPerimetroCuadrado() {
+    cuadrado1.setLado(Number(document.getElementById("input__cuadrado-lado").value));
+    alert(cuadrado1.getPerimetro());
+}
+
+function calcAreaCuadrado() {
+    cuadrado1.setLado(Number(document.getElementById("input__cuadrado-lado").value));
+    alert(cuadrado1.getArea());
+}
+
+function calcPerimetroTriangulo() {
+    triangulo1.setLadoI(Number(document.getElementById("input__triangulo-lado1").value));
+    triangulo1.setLadoD(Number(document.getElementById("input__triangulo-lado2").value));
+    triangulo1.setLadoBase(Number(document.getElementById("input__triangulo-base").value));
+    alert(triangulo1.getPerimetro());
+}
+
+function calcAreaTriangulo() {
+    triangulo1.setLadoI(Number(document.getElementById("input__triangulo-lado1").value));
+    triangulo1.setLadoD(Number(document.getElementById("input__triangulo-lado2").value));
+    triangulo1.setLadoBase(Number(document.getElementById("input__triangulo-base").value));
+    alert(triangulo1.getArea());
+}
+
+function calcPerimetroCirculo() {
+    circulo1.setRadio(Number(document.getElementById("input__circulo-radio").value));
+    alert(circulo1.getPerimetro());
+}
+
+function calcAreaCirculo() {
+    circulo1.setRadio(Number(document.getElementById("input__circulo-radio").value));
+    alert(circulo1.getArea());
+}

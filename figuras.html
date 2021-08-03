@@ -15,30 +15,30 @@
     <section>
         <h3>Cuadrado</h3>
         <form action="">
-            <label for="input__cuadrado-lado">Escribe cuánto mide cada lado de tu cuadrado: </label>
+            <label for="input__cuadrado-lado">Escribe cuánto mide un lado de tu cuadrado: </label>
             <input id="input__cuadrado-lado" type="number">
-            <button onclick="" type="button">Perímetro</button>
-            <button onclick="" type="button">Área</button>
+            <button onclick="calcPerimetroCuadrado()" type="button">Perímetro</button>
+            <button onclick="calcAreaCuadrado()" type="button">Área</button>
         </form>
     </section>
     <section>
         <h3>Triángulo</h3>
         <form action="">
-            <label for="">Escribe cuánto mide cada lado de tu triángulo: </label>
+            <label for="input__triangulo-lado1 input__triangulo-lado2 input__triangulo-base">Escribe cuánto mide cada lado de tu triángulo: </label>
             <input id="input__triangulo-lado1" type="number" name="lado1">
             <input id="input__triangulo-lado2" type="number" name="lado2">
             <input id="input__triangulo-base" type="number" name="base">
-            <button type="button">Perímetro</button>
-            <button type="button">Área</button>
+            <button onclick="calcPerimetroTriangulo()" type="button">Perímetro</button>
+            <button onclick="calcAreaTriangulo()" type="button">Área</button>
         </form>
     </section>
     <section>
         <h3>Círculo</h3>
-        <form action="input__circulo-radio">
-            <label for="">Escribe cuánto mide el radio de tu círculo: </label>
+        <form action="">
+            <label for="input__circulo-radio">Escribe cuánto mide el radio de tu círculo: </label>
             <input id="input__circulo-radio" type="number">
-            <button type="button">Perímetro</button>
-            <button type="button">Área</button>
+            <button onclick="calcPerimetroCirculo()" type="button">Perímetro</button>
+            <button onclick="calcAreaCirculo()" type="button">Área</button>
         </form>
     </section>
     <script src="./figuras.js"></script>
