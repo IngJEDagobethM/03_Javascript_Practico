@@ -5,28 +5,48 @@ class Cuadrado {
         this.lado = lado;
     }
 
-    perimetro() {
-        return this.lado * 4;
-    };
+    getLado() {
+        return this.lado;
+    }
 
-    area() {
-        return this.lado * this.lado;
-    };
+    setLado(lado) {
+        this.lado = lado;
+    }
+
+    calcPerimetro() {
+        return this.getLado() * 4;
+    }
+
+    getPerimetro() {
+        return this.calcPerimetro();
+    }
+
+    calcArea() {
+        return this.getLado() * this.getLado();
+    }
+
+    getArea() {
+        return this.calcArea();
+    }
 }
-
+let cuadrado1 = new Cuadrado(0);
+/*
 console.group("Cuadrados");
-let cuadrado1 = new Cuadrado(5);
+cuadrado1.setLado(20);
 console.log(
     "Los lados del cuadrado miden: "
-    + cuadrado1.lado+" cm.");
+    + cuadrado1.getLado()
+    + " cm.");
 console.log(
     "El perímetro del cuadrado es: "
-    + cuadrado1.perimetro()+" cm.");
+    + cuadrado1.getPerimetro()
+    + " cm.");
 console.log(
     "El área del cuadrado es: "
-    + cuadrado1.area()+" cm^2.");
+    + cuadrado1.getArea()
+    + " cm^2.");
 console.groupEnd();
-
+*/
 // código del triángulo
 
 class Triangulo {
@@ -37,35 +57,79 @@ class Triangulo {
         this.altura = altura;
     }
 
-    perimetro() {
-        return this.ladoI + this.ladoD + this.ladoBase;
-    };
+    getLadoI() {
+        return this.ladoI
+    }
 
-    area() {
-        return (this.ladoBase * this.altura) / 2;
-    };
+    setLadoI(ladoI) {
+        this.ladoI = ladoI;
+    }
+
+    getLadoD() {
+        return this.ladoD
+    }
+
+    setLadoD(ladoD) {
+        this.ladoD = ladoD;
+    }
+
+    getLadoBase() {
+        return this.ladoBase
+    }
+
+    setLadoBase(ladoBase) {
+        this.ladoBase = ladoBase;
+    }
+
+    getAltura() {
+        return this.altura
+    }
+
+    setAltura(altura) {
+        this.altura = altura;
+    }
+
+    calcPerimetro() {
+        return this.getLadoI() + this.getLadoD() + this.getLadoBase();
+    }
+
+    calcArea() {
+        return (this.getLadoBase() * this.getAltura()) / 2;
+    }
+
+    getPerimetro() {
+        return this.calcPerimetro();
+    }
+
+    getArea() {
+        return this.calcArea();
+    }
 }
-
+let triangulo1 = new Triangulo(0,0,0,0);
+/*
 console.group("Triángulos");
-let triangulo1 = new Triangulo(5,5,3,4.5);
+triangulo1.setLadoI(5);
+triangulo1.setLadoD(5);
+triangulo1.setLadoBase(5);
+triangulo1.setAltura(4);
 console.log(
     "Los lados del triángulo miden: "
-    + triangulo1.ladoI
+    + triangulo1.getLadoI()
     + " cm, "
-    + triangulo1.ladoD
+    + triangulo1.getLadoD()
     + " cm y "
-    + triangulo1.ladoBase
+    + triangulo1.getLadoBase()
     + " cm. La altura es: "
-    + triangulo1.altura
+    + triangulo1.getAltura()
     + " cm.");
 console.log(
     "El perímetro del triángulo es: "
-    + triangulo1.perimetro()+" cm.");
+    + triangulo1.getPerimetro()+" cm.");
 console.log(
     "El área del triángulo es: "
-    + triangulo1.area()+" cm^2.");
+    + triangulo1.getArea()+" cm^2.");
 console.groupEnd();
-
+*/
 // código del círculo
 
 class Circulo {
@@ -73,31 +137,60 @@ class Circulo {
         this.radio = radio;
     }
 
-    diametro() {
-        return this.radio * 2;
+    getRadio() {
+        return this.radio;
     }
 
-    perimetro() {
-        return this.diametro() * Math.PI;
-    };
+    setRadio(radio) {
+        this.radio = radio;
+    }
 
-    area() {
-        return (this.radio * this.radio) * Math.PI;
-    };
+    calcDiametro() {
+        return this.getRadio() * 2;
+    }
+
+    getDiametro() {
+        return this.calcDiametro();
+    }
+
+    calcPerimetro() {
+        return this.getDiametro() * Math.PI;
+    }
+
+    getPerimetro() {
+        return this.calcPerimetro();
+    }
+
+    calcArea() {
+        return (this.getRadio() * this.getRadio()) * Math.PI;
+    }
+
+    getArea() {
+        return this.calcArea();
+    }
 }
-
+let circulo1 = new Circulo(0);
+/*
 console.group("Círculos");
-let circulo1 = new Circulo(5);
+circulo1.setRadio(5);
 console.log(
     "El radio del círculo mide: "
-    + circulo1.radio+" cm.");
+    + circulo1.getRadio()
+    + " cm.");
 console.log(
     "El diametro del círculo es: "
-    + circulo1.diametro()+" cm.");
+    + circulo1.getDiametro()
+    + " cm.");
 console.log(
     "El perímetro del círculo es: "
-    + circulo1.perimetro()+" cm.");
+    + circulo1.getPerimetro()
+    + " cm.");
 console.log(
     "El área del círculo es: "
-    + circulo1.area()+" cm^2.");
+    + circulo1.getArea()
+    + " cm^2.");
 console.groupEnd();
+*/
+
+// Interactuando con HTML y JS
+
